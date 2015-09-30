@@ -1,0 +1,95 @@
+class Estadisticas
+{
+   CasaP person = new CasaP();
+   PersonaP per = new PersonaP();
+   public int listaMenu()
+   {
+      int opcion;
+      do
+        {
+            opcion=Teclado.LeeEntero("1)Ingresos promedio por familia.\n 2)Promedio de nivel de estudios.\n3)Porcentaje de personas que hablan más de un idioma.\n4)Promedio de persona más vieja por familia.\n5)Promedio de persona más joven por familia.\n6)Porcentaje de personas que trabajan.\n7)Porcentaje de personas que estudian.\n8)Promedio de edad.\n9)Promedio de personas por delegación.\n10)Porcentaje de hombres.\n11)Porcentaje de mujeres.\n12)Porcentaje de personas que tienen casa propia.\n14)Porcentaje de personas que rentar su vivienda.\n15)Salir.\n");
+            if (opcion>15 || opcion<1)
+                System.out.println("Error, opncion no valida");
+            switch(opcion)
+            {
+               case 1: //System.out.println(PromIngresos());
+                  break;
+               case 2: //System.out.println(PromNivelEst());
+                  break;
+               case 3: //System.out.println(PorcenIdioma());
+                  break;
+               case 4: System.out.println(PerVieja());
+                  break;
+               case 5: //System.out.println(PerJoven());
+                  break;
+               case 6: //System.out.println(PorcEstudia());
+                  break;
+               case 7: //System.out.println(PorcTrabaja());
+                  break;
+               case 8: //System.out.println(PromEdad());
+                  break;
+               case 9: //System.out.println(PerColonia());
+                  break;
+               case 10: //System.out.println(PerDelegacion());
+                  break;
+               case 11: //System.out.println(PorcMujer());
+                  break;
+               case 12: //System.out.println(PorcHombre());
+                  break;
+               case 13: //System.out.println(PorcPropia());
+                  break;
+               case 14: //System.out.println(PorcRenta());
+                  break;
+            }
+        }while(opcion>15 || opcion<1);
+        return opcion;
+    }
+    public void PromIngresos()
+    {
+    }
+    public void PromNivelEst()
+    {
+    }
+    public void PorcenIdioma()
+    {
+    }
+    public float PerVieja()
+    {
+      int i,prom=0,cont=0;
+      for(i=0;i<person.indice;i++)
+      {
+         prom=prom+(per.edad[per.edad.length-1]);
+      }
+      return(prom=prom/i);
+    }
+    public void PerJoven()
+    {
+    }
+    public void PorcEstudia()
+    {
+    }
+    public void PorcTrabaja()
+    {
+    }
+    public void PromEdad()
+    {
+    }
+    public void PerColonia()
+    {
+    }
+    public void PerDelegacion()
+    {
+    }
+    public void PorcMujer()
+    {
+    }
+    public void PorcHombre()
+    {
+    }
+    public void PorcPropia()
+    {
+    }
+    public void PorcRenta()
+    {
+    }
+}
