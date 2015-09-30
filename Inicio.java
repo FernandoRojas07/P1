@@ -31,3 +31,22 @@ class Inicio
       while(opc>7);
    }
 }
+/*public static void main(String []args)   {
+      int opcion,indice;
+      DireccionP dir=new DireccionP();
+      PersonaP []per;
+      Menu menu=new Menu();
+      Estadisticas e;
+      do {
+         opcion=menu.Menu("1)Iniciar censo.\ln2)Consultar estadisticas.\ln3)Salir.\ln",3);
+         switch(opcion) {
+            case 1:System.out.println("Iniciando...");
+                   indice=Teclado.Lee("Dame el numero total de casas para el censo: ");
+                   per=new PersonaP[indice];
+                  break;
+            case 2:e.CalculaEstadisticas()
+                  break;
+                  }
+      } while(opcion!=3);
+}*/
+
