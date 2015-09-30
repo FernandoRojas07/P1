@@ -1,6 +1,6 @@
 class CasaP
 {
-   private Direccion dir;
+   private DireccionP dir;
    int indice, personas;
    PersonaP []casas= new PersonaP[100];
    public void CasasCap()
