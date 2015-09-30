@@ -1,5 +1,7 @@
 class Inicio
 {
+   static CasaP cas = new CasaP();
+   static Estadisticas estadis = new Estadisticas();
    public static int listaMenu()
    {
       int op;
@@ -20,9 +22,9 @@ class Inicio
          opc = listaMenu();
          switch(opc)
          {
-            case 1:
+            case 1: cas.CasasCap();
                break;
-            case 2:
+            case 2: estadis.listaMenu();
                break;
          }
       }
