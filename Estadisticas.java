@@ -12,7 +12,7 @@ class Estadisticas
                 System.out.println("Error, opncion no valida");
             switch(opcion)
             {
-               case 1: //System.out.println(PromIngresos());
+               case 1: System.out.println(PromIngresos());
                   break;
                case 2: //System.out.println(PromNivelEst());
                   break;
@@ -20,7 +20,7 @@ class Estadisticas
                   break;
                case 4: System.out.println(PerVieja());
                   break;
-               case 5: //System.out.println(PerJoven());
+               case 5: System.out.println(PerJoven());
                   break;
                case 6: //System.out.println(PorcEstudia());
                   break;
@@ -44,8 +44,15 @@ class Estadisticas
         }while(opcion>15 || opcion<1);
         return opcion;
     }
-    public void PromIngresos()
+    public double PromIngresos()
     {
+      int i;
+      double prom=0;
+      for(i=0;i<person.indice;i++)
+      {
+         prom=prom+(per.ingresos);
+      }
+      return(prom=prom/i);
     }
     public void PromNivelEst()
     {
@@ -62,8 +69,14 @@ class Estadisticas
       }
       return(prom=prom/i);
     }
-    public void PerJoven()
+    public float PerJoven()
     {
+      int i,prom=0,cont=0;
+      for(i=0;i<person.indice;i++)
+      {
+         prom=prom+(per.edad[0]);
+      }
+      return(prom=prom/i);
     }
     public void PorcEstudia()
     {
