@@ -1,5 +1,5 @@
 class DireccionP{
-	private String delegacion;
+	private int delegacion;
    public void CapturaDireccion()
    {
       LeeDelegacion();
