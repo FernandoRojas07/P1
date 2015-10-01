@@ -33,8 +33,6 @@ class Inicio
 }
 /*public static void main(String []args)   {
       int opcion,indice;
-      DireccionP dir=new DireccionP();
-      PersonaP []per;
       Menu menu=new Menu();
       Estadisticas e;
       do {
