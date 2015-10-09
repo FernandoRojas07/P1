@@ -22,11 +22,12 @@ class CasaP {
       hj=casas[a].getIng();
       return hj;
    }
-   public int getEdadV(int a,int b)
+   public int getEdad(int a, int b)
    {
+      int eda;
       if(b==1)
-         return casas[a].GetEdV();
+         return casas[a].getEdV(noper);
       else
-         return casas[a].GetEdJ();
+         return casas[a].getEdJ(noper);
    }
 }
