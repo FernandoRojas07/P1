@@ -22,9 +22,9 @@ class EstadisticasP
                   break;
                case 3: //System.out.println(PorcenIdioma());
                   break;
-               case 4: //System.out.println(PerVieja());
+               case 4: System.out.println(PerVieja());
                   break;
-               case 5: //System.out.println(PerJoven());
+               case 5: System.out.println(PerJoven());
                   break;
                case 6: //System.out.println(PorcEstudia());
                   break;
@@ -66,21 +66,21 @@ class EstadisticasP
     //}
     public float PerVieja()
     {
-      int i,prom=0,cont=0;
-      for(i=0;i<person.noper;i++)
+      int i,prom=0;
+      for(i=0;i<person.noper-1;i++)
       {
-         prom=prom+(person.getEdadV(i,1));
+         prom=prom+(person.getEdad(i,1));
       }
-      return(prom=prom/i);
+      return(prom/i);
     }
     public float PerJoven()
     {
-      int i,prom=0,cont=0;
-      for(i=0;i<person.noper;i++)
+      int i,prom=0;
+      for(i=0;i<person.noper-1;i++)
       {
-         prom=prom+(person.getEdadV(i,2));
+         prom=prom+(person.getEdad(i,2));
       }
-      return(prom=prom/i);
+      return(prom/i);
 
     }/*
     public void PorcEstudia()
