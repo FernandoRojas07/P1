@@ -14,9 +14,8 @@ class PersonaP
    }
    public void capturaPerson()
    {
-      personas=personas+per;
       LeeEdad();
-      OrdenaEdades();
+      OrdenaEdades(edad,personas);
       CapturaIngresos();
       /*LeeGenero();
       LeeEstudios();
@@ -57,7 +56,7 @@ class PersonaP
    public void LeeIdioma()
    {
       int x;
-      for(int i=1;i<per;i++)
+      for(int i=0;i<per;i++)
       {
          Teclado.LeeEntero("El integrante "+(i+1)+" además del Español, ¿habla algun otro idioma?\n1.-Si\n2.-No\n ");
          if(idioma==1)
@@ -67,18 +66,18 @@ class PersonaP
          }
       }
    }
-   public void OrdenaEdades()
+   public void OrdenaEdades(int []v, int indice)
    {
       int aux,i,j;
-      for(i=1;i<per;i++)
+      for(i=1;i<indice;i++)
       {
-         aux =edad[i];
+         aux =v[i];
          for(j=i;j>0;j--)
          {
-            if(edad[j-1]>aux)
-               edad[j]=edad[j-1];
+            if(v[j-1]>aux)
+               v[j]=v[j-1];
          }
-         edad[j] = aux;
+         v[j] = aux;
       }
    }
    public void CapturaIngresos()
@@ -89,12 +88,13 @@ class PersonaP
    {
       return ingresos;
    }
-   public int GetEdV()
+   public int getEdV(int a)
    {
-      return edad[edad.length-1];
+      return edad[personas-1];
    }
-   public int GetEdJ()
+   public int getEdJ(int a)
    {
+      System.out.println(edad[0]);
       return edad[0];
    }
 }
