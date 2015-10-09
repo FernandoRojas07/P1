@@ -1,7 +1,7 @@
 class CasaP {
    private DireccionP dir=new DireccionP();
    private PersonaP[] casas;
-   int contperso=0,cont;
+   int contperso=0,cont,noper;
    private PersonaP obj = new PersonaP();
    
    public void CasasCap(int cas)
@@ -9,7 +9,6 @@ class CasaP {
       casas= new PersonaP[cas];
       for(cont=0;cont<cas;cont++)
       {  
-         int noper;
          noper=Teclado.LeeEntero("¿Cuántas personas hay en el hogar ["+(cont+1)+"]?");
          casas[cont]=new PersonaP();
          casas[cont].PersonaP(noper);
@@ -22,5 +21,12 @@ class CasaP {
       int hj;
       hj=casas[a].getIng();
       return hj;
+   }
+   public int getEdadV(int a,int b)
+   {
+      if(b==1)
+         return casas[a].GetEdV();
+      else
+         return casas[a].GetEdJ();
    }
 }
