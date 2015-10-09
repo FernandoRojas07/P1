@@ -58,41 +58,31 @@ class EstadisticasP
       }
       return prom/i;
     }
-    /*
-    public void PromNivelEst()
-    {
-    }
-    public void PorcenIdioma()
-    {
-    }
+    //public void PromNivelEst()
+    //{
+    //}
+    //public void PorcenIdioma()
+    //{
+    //}
     public float PerVieja()
     {
       int i,prom=0,cont=0;
-      for(i=0;i<person.indice;i++)
+      for(i=0;i<person.noper;i++)
       {
-         prom=prom+(per.edad[per.edad.length-1]);
+         prom=prom+(person.getEdadV(i,1));
       }
       return(prom=prom/i);
-    }
-    public float PerVieja()
-    {
-      int i,prom=0,cont=0;
-      for(i=0;i<=inc.p;i++)
-      {
-         prom=prom+(person.casas[i].edad[per.edad.length-1]);
-      }
-      prom=prom/i-1;
-      return prom;
     }
     public float PerJoven()
     {
       int i,prom=0,cont=0;
-      for(i=0;i<inc.p;i++)
+      for(i=0;i<person.noper;i++)
       {
-         prom=prom+(per.edad[0]);
+         prom=prom+(person.getEdadV(i,2));
       }
       return(prom=prom/i);
-    }
+
+    }/*
     public void PorcEstudia()
     {
     }
