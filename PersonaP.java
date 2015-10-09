@@ -94,7 +94,6 @@ class PersonaP
    }
    public int getEdJ(int a)
    {
-      System.out.println(edad[0]);
       return edad[0];
    }
 }
