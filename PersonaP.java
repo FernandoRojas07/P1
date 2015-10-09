@@ -1,21 +1,29 @@
-class PersonaP
+class PersonaP 
 {
-   int[] edad, estudios;
-   int personas=0,generomas=0,generofem=0,ocupacion=0,idioma=0,estudiantes=0,trabajadores=0,per;
-   public void CapturaPersona(){
-      per=Teclado.LeeEntero("¿Cuántas personas viven en tu casa? ");
-      personas=personas+per;
-      LeeEdad();
-      LeeGenero();
-      LeeEstudios();
-      LeeOcupacion();
-   }
-   public void PersonaP()
+   private int[] edad, estudios;
+   PersonaP obj1;
+   private int personas=0,generomas=0,generofem=0,ocupacion=0,idioma=0,estudiantes=0,trabajadores=0,per;
+   private int ingresos;
+   
+   public void PersonaP(int per) 
    {
       edad = new int[per];
       estudios = new int[per];
+      capturaPerson();
    }
-   public void LeeEdad()
+   public void capturaPerson()
+   {
+      personas=personas+per;
+      //LeeEdad(per);
+      //OrdenaEdades();
+      CapturaIngresos();
+      /*LeeGenero();
+      LeeEstudios();
+      LeeOcupacion();
+      LeeIdioma();
+      */
+   }
+   public void LeeEdad(int per)
    {
       for(int i=0;i<per;i++)
       {
@@ -71,5 +79,13 @@ class PersonaP
          }
          edad[j] = aux;
       }
+   }
+   public void CapturaIngresos()
+   {
+      ingresos=Teclado.LeeEntero("¿Cuál es el ingreso mensual de tu hogar?");
+   }
+   public int getIng()
+   {
+      return ingresos;
    }
 }
