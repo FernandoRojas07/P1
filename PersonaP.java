@@ -7,6 +7,7 @@ class PersonaP
    
    public void PersonaP(int per) 
    {
+      personas=per;
       edad = new int[per];
       estudios = new int[per];
       capturaPerson();
@@ -14,8 +15,8 @@ class PersonaP
    public void capturaPerson()
    {
       personas=personas+per;
-      //LeeEdad(per);
-      //OrdenaEdades();
+      LeeEdad();
+      OrdenaEdades();
       CapturaIngresos();
       /*LeeGenero();
       LeeEstudios();
@@ -23,9 +24,9 @@ class PersonaP
       LeeIdioma();
       */
    }
-   public void LeeEdad(int per)
+   public void LeeEdad()
    {
-      for(int i=0;i<per;i++)
+      for(int i=0;i<personas;i++)
       {
          edad[i]=Teclado.LeeEntero("Dame la edad del intrante "+(i+1)+": ");
       }
@@ -87,5 +88,13 @@ class PersonaP
    public int getIng()
    {
       return ingresos;
+   }
+   public int GetEdV()
+   {
+      return edad[edad.length-1];
+   }
+   public int GetEdJ()
+   {
+      return edad[0];
    }
 }
