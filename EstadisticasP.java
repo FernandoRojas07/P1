@@ -1,13 +1,17 @@
-class Estadisticas
+class EstadisticasP
 {
-   CasaP person = new CasaP();
-   PersonaP per = new PersonaP();
-   public int listaMenu()
+   CasaP person;
+   public void EstadisticasP(CasaP arr)
+   {
+      person = arr;
+      CalculaEstadisticas();
+   }
+   public int CalculaEstadisticas()
    {
       int opcion;
       do
         {
-            opcion=Teclado.LeeEntero("1)Ingresos promedio por familia.\n 2)Promedio de nivel de estudios.\n3)Porcentaje de personas que hablan más de un idioma.\n4)Promedio de persona más vieja por familia.\n5)Promedio de persona más joven por familia.\n6)Porcentaje de personas que trabajan.\n7)Porcentaje de personas que estudian.\n8)Promedio de edad.\n9)Promedio de personas por delegación.\n10)Porcentaje de hombres.\n11)Porcentaje de mujeres.\n12)Porcentaje de personas que tienen casa propia.\n14)Porcentaje de personas que rentar su vivienda.\n15)Salir.\n");
+            opcion=Teclado.LeeEntero("1)Ingresos promedio por familia.\n2)Promedio de nivel de estudios.\n3)Porcentaje de personas que hablan más de un idioma.\n4)Promedio de persona más vieja por familia.\n5)Promedio de persona más joven por familia.\n6)Porcentaje de personas que trabajan.\n7)Porcentaje de personas que estudian.\n8)Promedio de edad.\n9)Promedio de personas por delegación.\n10)Porcentaje de hombres.\n11)Porcentaje de mujeres.\n12)Porcentaje de personas que tienen casa propia.\n14)Porcentaje de personas que rentar su vivienda.\n15)Salir.\n");
             if (opcion>15 || opcion<1)
                 System.out.println("Error, opncion no valida");
             switch(opcion)
@@ -18,9 +22,9 @@ class Estadisticas
                   break;
                case 3: //System.out.println(PorcenIdioma());
                   break;
-               case 4: System.out.println(PerVieja());
+               case 4: //System.out.println(PerVieja());
                   break;
-               case 5: System.out.println(PerJoven());
+               case 5: //System.out.println(PerJoven());
                   break;
                case 6: //System.out.println(PorcEstudia());
                   break;
@@ -44,16 +48,17 @@ class Estadisticas
         }while(opcion>15 || opcion<1);
         return opcion;
     }
-    public double PromIngresos()
+    public int PromIngresos()
     {
       int i;
-      double prom=0;
-      for(i=0;i<person.indice;i++)
+      int prom=0;
+      for(i=0;i<(person.cont);i++)
       {
-         prom=prom+(per.ingresos);
+         prom=prom+person.getIngreso(i);
       }
-      return(prom=prom/i);
+      return prom/i;
     }
+    /*
     public void PromNivelEst()
     {
     }
@@ -69,10 +74,20 @@ class Estadisticas
       }
       return(prom=prom/i);
     }
+    public float PerVieja()
+    {
+      int i,prom=0,cont=0;
+      for(i=0;i<=inc.p;i++)
+      {
+         prom=prom+(person.casas[i].edad[per.edad.length-1]);
+      }
+      prom=prom/i-1;
+      return prom;
+    }
     public float PerJoven()
     {
       int i,prom=0,cont=0;
-      for(i=0;i<person.indice;i++)
+      for(i=0;i<inc.p;i++)
       {
          prom=prom+(per.edad[0]);
       }
@@ -104,5 +119,5 @@ class Estadisticas
     }
     public void PorcRenta()
     {
-    }
+    }*/
 }
