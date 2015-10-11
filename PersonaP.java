@@ -2,7 +2,7 @@ class PersonaP
 {
    private int[] edad, estudios;
    PersonaP obj1;
-   private int personas=0,generomas=0,generofem=0,ocupacion=0,idioma=0,estudiantes=0,trabajadores=0,per;
+   private int personas=0,generomas=0,generofem=0,ocupacion=0,idioma=0,estudiantes=0,trabajadores=0,per, delegacion;
    private int ingresos;
    
    public void PersonaP(int per) 
@@ -14,15 +14,21 @@ class PersonaP
    }
    public void capturaPerson()
    {
-      LeeEdad();
-      OrdenaEdades(edad,personas);
-      CapturaIngresos();
-      /*LeeGenero();
-      LeeEstudios();
-      LeeOcupacion();
+      personas=personas+per;
+      //LeeEdad();
+      //OrdenaEdades();
+      //CapturaIngresos();
+      LeeGenero();
+      //LeeEstudios();
+      //LeeOcupacion();
       LeeIdioma();
-      */
+      //LeeDelegacion();
+      
    }
+   public void LeeDelegacion(){
+delegacion=Teclado.LeeEntero("En que delegacion viven: \n1.-Coyoacan\n2.-Gustavo A. Madero\n3.-Iztapalapa\n4.-Álvaro Obregón\n5.-Tlalpan\n6.-Otra\n");
+}
+
    public void LeeEdad()
    {
       for(int i=0;i<personas;i++)
@@ -56,28 +62,23 @@ class PersonaP
    public void LeeIdioma()
    {
       int x;
-      for(int i=0;i<per;i++)
+      for(int i=0;i<personas;i++)
       {
-         Teclado.LeeEntero("El integrante "+(i+1)+" además del Español, ¿habla algun otro idioma?\n1.-Si\n2.-No\n ");
-         if(idioma==1)
-         {
-            idioma=idioma+1;
-            x=Teclado.LeeEntero("¿Cuantos?: ");
-         }
+         idioma=Teclado.LeeEntero("El integrante "+(i+1)+" además del Español, ¿habla algun otro idioma?\n1.-Si\n2.-No\n ");
       }
    }
-   public void OrdenaEdades(int []v, int indice)
+   public void OrdenaEdades()
    {
       int aux,i,j;
-      for(i=1;i<indice;i++)
+      for(i=1;i<per;i++)
       {
-         aux =v[i];
+         aux =edad[i];
          for(j=i;j>0;j--)
          {
-            if(v[j-1]>aux)
-               v[j]=v[j-1];
+            if(edad[j-1]>aux)
+               edad[j]=edad[j-1];
          }
-         v[j] = aux;
+         edad[j] = aux;
       }
    }
    public void CapturaIngresos()
@@ -96,4 +97,20 @@ class PersonaP
    {
       return edad[0];
    }
+   public int GetEst(){
+   return estudios[0];
+   }
+   public int GetDir(){
+   return delegacion;
+   }
+   public int GetMas(){
+   return generomas;
+   }
+   public int GetFem(){
+   return generofem;
+   }
+   public int getIdi(){
+   return idioma;
+   }
+   
 }
