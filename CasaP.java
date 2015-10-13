@@ -34,10 +34,6 @@ class CasaP {
          return eda;
       }
    }
-   public int PersonasTotal()
-   {
-      return contperso;
-   }
    public int getEstudios(int a)
    {
       int estu=0;
