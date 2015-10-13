@@ -20,25 +20,25 @@ class EstadisticasP
                   break;
                case 2: PromNivelEst();
                   break;
-               case 3: System.out.println("El porcentaje de personas que hablan más de un idioma es: "+PorcenIdioma());
+               case 3: System.out.println("El porcentaje de personas que hablan más de un idioma es: "+PorcenIdioma()+"%.");
                   break;
                case 4: System.out.println("El promedio de edad más vieja en cada hogar es: "+PerVieja());
                   break;
                case 5: System.out.println("El promedio de edad más joven en cada hogar es: "+PerJoven());
                   break;
-               case 6: System.out.println("El porcentaje de personas que estudian es: "+PorcTrabaja());
+               case 6: System.out.println("El porcentaje de personas que trabajan es: "+PorcTrabaja()+"%.");
                   break;
-               case 7: System.out.println("El porcentaje de personas que tranajan es: "+PorcEstudia());
+               case 7: System.out.println("El porcentaje de personas que estudian es: "+PorcEstudia()+"%.");
                   break;
                case 8: System.out.println("El promedio de edad es: "+PromEdad());
                   break;
-               case 9: System.out.println("El procentaje de hombres es: "+PorcHombre());
+               case 9: System.out.println("El procentaje de hombres es: "+PorcHombre()+"%.");
                   break;
-               case 10:System.out.println("El procentaje de mujeres es: "+PorcMujer());
+               case 10:System.out.println("El procentaje de mujeres es: "+PorcMujer()+"%.");
                   break;
-               case 11: System.out.println("El promedio de Inmuebles propios es: "+PorcPropia());
+               case 11: System.out.println("El promedio de Inmuebles propios es: "+PorcPropia()+"%.");
                   break;
-               case 12: System.out.println("El promedio de Inmuebles rentados es: "+PorcRenta());
+               case 12: System.out.println("El promedio de Inmuebles rentados es: "+PorcRenta()+"%.");
                   break;
             }
         }while(opcion>13 || opcion<1);
@@ -58,15 +58,17 @@ class EstadisticasP
     {
       int i;
       int prom=0;
-      for(i=0;i<(person.noper-1);i++)
+      for(i=0;i<(person.cont);i++)
       {
          prom=prom+person.getEstudios(i);
       }
-      PromNivelEst(prom/i);
+      prom=prom/(person.contperso);
+      PromNivelEst(prom);
     }
-    public void PromNivelEst( int pr)
+    public void PromNivelEst(int pr)
     {
-        switch (pr) 
+        int op=pr;
+        switch (op) 
         {
             case 1: System.out.println("El nivel promedio de estudios es: Primaria.");
                   break;
@@ -84,11 +86,11 @@ class EstadisticasP
     {
       int i;
       int prom=0;
-      for(i=0;i<(person.cont);i++)
+      for(i=0;i<person.cont;i++)
       {
          prom=prom+person.getIdioma(i);
       }
-      return prom/i;
+      return (prom/(person.contperso))*100;
 
     }
     public float PerVieja()
@@ -116,7 +118,7 @@ class EstadisticasP
       {
          prom=prom+(person.getEdad(i,3));
       }
-      return(prom/i);
+      return(prom/person.contperso);
     }
     public int PorcEstudia()
     {
@@ -125,7 +127,7 @@ class EstadisticasP
       {
          prom=prom+(person.getEst(i,1));
       }
-      return(prom/i);
+      return(prom/(person.contperso))*100;
     }
     public int PorcTrabaja()
     {
@@ -134,7 +136,7 @@ class EstadisticasP
       {
          prom=prom+(person.getEst(i,2));
       }
-      return(prom/i);
+      return(prom/(person.contperso))*100;
     }
     public int PorcMujer()
     {
@@ -143,7 +145,7 @@ class EstadisticasP
       {
          prom=prom+(person.getGenero(i,1));
       }
-      return(prom/person.PersonasTotal());
+      return(prom/(person.contperso))*100;
     }
     public int PorcHombre()
     {
@@ -152,7 +154,7 @@ class EstadisticasP
       {
          prom=prom+(person.getGenero(i,2));
       }
-      return(prom/person.PersonasTotal());
+      return(prom/(person.contperso))*100;
     }
     public int PorcPropia()
     {
@@ -161,7 +163,7 @@ class EstadisticasP
       {
          prom=prom+(person.getPropiedad(i));
       }
-      return(prom/i);
+      return(prom/i)*100;
     }
     public int PorcRenta()
     {
@@ -170,6 +172,6 @@ class EstadisticasP
       {
          prom=prom+(person.getRenta(i));
       }
-      return(prom/i);
+      return(prom/i)*100;
     }
 }
