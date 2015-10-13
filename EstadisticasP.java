@@ -1,82 +1,175 @@
-class CasaP {
-   private PersonaP[] casas;
-   int contperso=0,cont,noper;
-   private PersonaP obj = new PersonaP();
-   
-   public void CasasCap(int cas)
+class EstadisticasP
+{
+   CasaP person;
+   public void EstadisticasP(CasaP arr)
    {
-      casas= new PersonaP[cas];
-      for(cont=0;cont<cas;cont++)
-      {  
-         noper=Teclado.LeeEntero("¿Cuántas personas hay en el hogar ["+(cont+1)+"]?");
-         casas[cont]=new PersonaP();
-         casas[cont].PersonaP(noper);
-         contperso=contperso+noper; 
-      }
+      person = arr;
+      CalculaEstadisticas();
    }
-   public int getIngreso(int a)
+   public int CalculaEstadisticas()
    {
-      int hj;
-      hj=casas[a].getIng();
-      return hj;
-   }
-   public int getEdad(int a, int b)
-   {
-      int eda=0;
-      if(b==1)
-         return casas[a].getEdV(noper);
-      if(b==2)
-         return casas[a].getEdJ(noper);
-      else
+      int opcion;
+      do
+        {
+            opcion=Teclado.LeeEntero("1)Ingresos promedio por familia.\n2)Promedio de nivel de estudios.\n3)Porcentaje de personas que hablan más de un idioma.\n4)Promedio de persona más vieja por familia.\n5)Promedio de persona más joven por familia.\n6)Porcentaje de personas que trabajan.\n7)Porcentaje de personas que estudian.\n8)Promedio de edad.\n9)Porcentaje de hombres.\n10)Porcentaje de mujeres.\n11)Porcentaje de personas que tienen casa propia.\n12)Porcentaje de personas que rentar su vivienda.\n13)Salir.\n");
+            if (opcion>13 || opcion<1)
+                System.out.println("Error, opncion no valida");
+            switch(opcion)
+            {
+               case 1: System.out.println("El promedio de ingresos es: "+PromIngresos());
+                  break;
+               case 2: PromNivelEst();
+                  break;
+               case 3: System.out.println("El porcentaje de personas que hablan más de un idioma es: "+PorcenIdioma());
+                  break;
+               case 4: System.out.println("El promedio de edad más vieja en cada hogar es: "+PerVieja());
+                  break;
+               case 5: System.out.println("El promedio de edad más joven en cada hogar es: "+PerJoven());
+                  break;
+               case 6: System.out.println("El porcentaje de personas que estudian es: "+PorcTrabaja());
+                  break;
+               case 7: System.out.println("El porcentaje de personas que tranajan es: "+PorcEstudia());
+                  break;
+               case 8: System.out.println("El promedio de edad es: "+PromEdad());
+                  break;
+               case 9: System.out.println("El procentaje de hombres es: "+PorcHombre());
+                  break;
+               case 10:System.out.println("El procentaje de mujeres es: "+PorcMujer());
+                  break;
+               case 11: System.out.println("El promedio de Inmuebles propios es: "+PorcPropia());
+                  break;
+               case 12: System.out.println("El promedio de Inmuebles rentados es: "+PorcRenta());
+                  break;
+            }
+        }while(opcion>13 || opcion<1);
+        return opcion;
+    }
+    public int PromIngresos()
+    {
+      int i;
+      int prom=0;
+      for(i=0;i<(person.cont);i++)
       {
-         for(int i=0;i<noper;i++)
-            eda=eda+casas[a].getEdT(i);
-         return eda;
+         prom=prom+person.getIngreso(i);
       }
-   }
-   public int PersonasTotal()
-   {
-      return contperso;
-   }
-   public int getEstudios(int a)
-   {
-      int estu=0;
-      for(int i=0;i<noper;i++)
+      return prom/i;
+    }
+    public void PromNivelEst()
+    {
+      int i;
+      int prom=0;
+      for(i=0;i<(person.noper-1);i++)
       {
-         estu = estu + casas[a].getEst(i);
+         prom=prom+person.getEstudios(i);
       }
-      return estu;
-   }
-   public int getIdioma(int a)
-   {
-      int idioma=0;
-      for(int i=0;i<noper;i++)
+      PromNivelEst(prom/i);
+    }
+    public void PromNivelEst( int pr)
+    {
+        switch (pr) 
+        {
+            case 1: System.out.println("El nivel promedio de estudios es: Primaria.");
+                  break;
+            case 2: System.out.println("El nivel promedio de estudios es: Secundaria.");
+                  break;
+            case 3: System.out.println("El nivel promedio de estudios es: Preparatoria.");
+                  break;
+            case 4: System.out.println("El nivel promedio de estudios es: Licenciatura.");
+                  break;
+            case 5: System.out.println("El nivel promedio de estudios es: Nivel superior a Licenciatura.");
+                  break;
+        }
+    }
+    public int PorcenIdioma()
+    {
+      int i;
+      int prom=0;
+      for(i=0;i<(person.cont);i++)
       {
-         idioma = idioma + casas[a].getIdd();
+         prom=prom+person.getIdioma(i);
       }
-      return idioma;
-   }
-   public int getEst(int a,int b)
-   {
-      int eda;
-      if(b==1)
-         return casas[a].getPerEstudia();
-      else
-         return casas[a].getPerTrabaja();
-   }
-   public int getGenero(int a,int b)
-   {
-      if(b==1)
-         return casas[a].getMujer();
-      else
-         return casas[a].getHombre();
-   }
-   public int getPropiedad(int a)
-   {
-      return casas[a].getInmueble(1);
-   }
-   public int getRenta(int a)
-   {
-      return casas[a].getInmueble(2);
-   }
+      return prom/i;
+
+    }
+    public float PerVieja()
+    {
+      int i,prom=0;
+      for(i=0;i<person.cont;i++)
+      {
+         prom=prom+(person.getEdad(i,1));
+      }
+      return(prom/i);
+    }
+    public float PerJoven()
+    {
+      int i,prom=0;
+      for(i=0;i<person.cont;i++)
+      {
+         prom=prom+(person.getEdad(i,2));
+      }
+      return(prom/i);
+    }
+    public int PromEdad()
+    {
+      int i,prom=0;
+      for(i=0;i<person.cont;i++)
+      {
+         prom=prom+(person.getEdad(i,3));
+      }
+      return(prom/i);
+    }
+    public int PorcEstudia()
+    {
+      int i,prom=0;
+      for(i=0;i<person.cont;i++)
+      {
+         prom=prom+(person.getEst(i,1));
+      }
+      return(prom/i);
+    }
+    public int PorcTrabaja()
+    {
+      int i,prom=0;
+      for(i=0;i<person.cont;i++)
+      {
+         prom=prom+(person.getEst(i,2));
+      }
+      return(prom/i);
+    }
+    public int PorcMujer()
+    {
+      int i,prom=0;
+      for(i=0;i<person.cont;i++)
+      {
+         prom=prom+(person.getGenero(i,1));
+      }
+      return(prom/person.PersonasTotal());
+    }
+    public int PorcHombre()
+    {
+      int i,prom=0;
+      for(i=0;i<person.cont;i++)
+      {
+         prom=prom+(person.getGenero(i,2));
+      }
+      return(prom/person.PersonasTotal());
+    }
+    public int PorcPropia()
+    {
+      int i,prom=0;
+      for(i=0;i<person.cont;i++)
+      {
+         prom=prom+(person.getPropiedad(i));
+      }
+      return(prom/i);
+    }
+    public int PorcRenta()
+    {
+      int i,prom=0;
+      for(i=0;i<person.cont;i++)
+      {
+         prom=prom+(person.getRenta(i));
+      }
+      return(prom/i);
+    }
 }
