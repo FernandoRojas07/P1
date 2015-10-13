@@ -20,33 +20,63 @@ class CasaP {
       hj=casas[a].getIng();
       return hj;
    }
-   public int GetEstudios(int a)
-   {
-      int est;
-      est=casas[a].GetEst();
-      return est;
-   }
    public int getEdad(int a, int b)
+   {
+      int eda=0;
+      if(b==1)
+         return casas[a].getEdV(noper);
+      if(b==2)
+         return casas[a].getEdJ(noper);
+      else
+      {
+         for(int i=0;i<noper;i++)
+            eda=eda+casas[a].getEdT(i);
+         return eda;
+      }
+   }
+   public int PersonasTotal()
+   {
+      return contperso;
+   }
+   public int getEstudios(int a)
+   {
+      int estu=0;
+      for(int i=0;i<noper;i++)
+      {
+         estu = estu + casas[a].getEst(i);
+      }
+      return estu;
+   }
+   public int getIdioma(int a)
+   {
+      int idioma=0;
+      for(int i=0;i<noper;i++)
+      {
+         idioma = idioma + casas[a].getIdd();
+      }
+      return idioma;
+   }
+   public int getEst(int a,int b)
    {
       int eda;
       if(b==1)
-         return casas[a].getEdV(noper);
+         return casas[a].getPerEstudia();
       else
-         return casas[a].getEdJ(noper);
+         return casas[a].getPerTrabaja();
    }
-   public int getDireccion(int a){
-   int d;
-      d=casas[a].GetDir();
-      return d;
+   public int getGenero(int a,int b)
+   {
+      if(b==1)
+         return casas[a].getMujer();
+      else
+         return casas[a].getHombre();
    }
-   public int getFemenino(int a){
-   int f;
-   f=casas[a].GetFem();
-   return f;
+   public int getPropiedad(int a)
+   {
+      return casas[a].getInmueble(1);
    }
-   public int GetIdioma(int a) {
-      int id;
-      id=casas[a].getIdi();
-      return id;
+   public int getRenta(int a)
+   {
+      return casas[a].getInmueble(2);
    }
 }
