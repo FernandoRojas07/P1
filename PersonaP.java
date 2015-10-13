@@ -1,9 +1,9 @@
 class PersonaP 
 {
-   private int[] edad, estudios;
    PersonaP obj1;
-   private int personas=0,generomas=0,generofem=0,ocupacion=0,idioma=0,estudiantes=0,trabajadores=0,per, delegacion;
-   private int ingresos;
+   private int[] edad, estudios;
+   private int personas=0,generomas=0,generofem=0,ocupacion=0,idiom=0,idioma,estudiantes=0,trabajadores=0,per;
+   private int ingresos, casaPropia,casaRenta;
    
    public void PersonaP(int per) 
    {
@@ -14,21 +14,15 @@ class PersonaP
    }
    public void capturaPerson()
    {
-      personas=personas+per;
-      //LeeEdad();
-      //OrdenaEdades();
-      //CapturaIngresos();
+      LeeEdad();
+      OrdenaEdades(edad,personas);
+      CapturaIngresos();
       LeeGenero();
-      //LeeEstudios();
-      //LeeOcupacion();
+      LeeEstudios();
+      LeeOcupacion();
       LeeIdioma();
-      //LeeDelegacion();
-      
+      LeeInmueble();
    }
-   public void LeeDelegacion(){
-delegacion=Teclado.LeeEntero("En que delegacion viven: \n1.-Coyoacan\n2.-Gustavo A. Madero\n3.-Iztapalapa\n4.-Álvaro Obregón\n5.-Tlalpan\n6.-Otra\n");
-}
-
    public void LeeEdad()
    {
       for(int i=0;i<personas;i++)
@@ -62,23 +56,45 @@ delegacion=Teclado.LeeEntero("En que delegacion viven: \n1.-Coyoacan\n2.-Gustavo
    public void LeeIdioma()
    {
       int x;
-      for(int i=0;i<personas;i++)
+      for(int i=0;i<per;i++)
       {
          idioma=Teclado.LeeEntero("El integrante "+(i+1)+" además del Español, ¿habla algun otro idioma?\n1.-Si\n2.-No\n ");
+         if(idioma==1)
+         {
+            idiom=idiom+1;
+            x=Teclado.LeeEntero("¿Cuantos?: ");
+         }
       }
    }
-   public void OrdenaEdades()
+   public void LeeInmueble()
+   {
+      int inmueble;
+      do
+        {
+           inmueble=Teclado.LeeEntero("El inmueble donde habitan es:\n1)Propio.\n2)Rentado. ");
+           if (inmueble>2 || inmueble<1)
+                System.out.println("Error, opncion no valida");
+            switch(inmueble)
+            {
+               case 1: casaPropia=1;
+               break;
+               case 2: casaRenta=1;
+               break;
+            }
+        }while(inmueble>2 || inmueble<1);
+   }
+   public void OrdenaEdades(int []v, int indice)
    {
       int aux,i,j;
-      for(i=1;i<per;i++)
+      for(i=1;i<indice;i++)
       {
-         aux =edad[i];
+         aux =v[i];
          for(j=i;j>0;j--)
          {
-            if(edad[j-1]>aux)
-               edad[j]=edad[j-1];
+            if(v[j-1]>aux)
+               v[j]=v[j-1];
          }
-         edad[j] = aux;
+         v[j] = aux;
       }
    }
    public void CapturaIngresos()
@@ -97,20 +113,39 @@ delegacion=Teclado.LeeEntero("En que delegacion viven: \n1.-Coyoacan\n2.-Gustavo
    {
       return edad[0];
    }
-   public int GetEst(){
-   return estudios[0];
+   public int getEdT(int a)
+   {
+      return edad[a];
    }
-   public int GetDir(){
-   return delegacion;
+   public int getEst(int a)
+   {
+      return estudios[a];
    }
-   public int GetMas(){
-   return generomas;
+   public int getIdd()
+   {
+      return idiom;
    }
-   public int GetFem(){
-   return generofem;
+   public int getPerEstudia()
+   {
+      return estudiantes;
    }
-   public int getIdi(){
-   return idioma;
+   public int getPerTrabaja()
+   {
+      return trabajadores;
    }
-   
+   public int getMujer()
+   {
+      return generofem;
+   }
+   public int getHombre()
+   {
+      return generomas;
+   }
+   public int getInmueble(int a)
+   {
+      if(a==1)
+         return casaPropia;
+      else
+         return casaRenta;
+   }
 }
