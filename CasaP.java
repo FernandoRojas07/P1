@@ -27,30 +27,18 @@ class CasaP {
          return casas[a].getEdV(noper);
       if(b==2)
          return casas[a].getEdJ(noper);
+      if(b==3)
+         return casas[a].getEdT();
       else
-      {
-         for(int i=0;i<noper;i++)
-            eda=eda+casas[a].getEdT(i);
-         return eda;
-      }
+         return 0;
    }
    public int getEstudios(int a)
    {
-      int estu=0;
-      for(int i=0;i<noper;i++)
-      {
-         estu = estu + casas[a].getEst(i);
-      }
-      return estu;
+      return casas[a].getEst();
    }
    public int getIdioma(int a)
    {
-      int idioma=0;
-      for(int i=0;i<noper;i++)
-      {
-         idioma = idioma + casas[a].getIdd();
-      }
-      return idioma;
+      return casas[a].getIdd();
    }
    public int getEst(int a,int b)
    {
