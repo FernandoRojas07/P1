@@ -16,18 +16,18 @@ class PersonaP
    {
       LeeEdad();
       OrdenaEdades(edad,personas);
-      CapturaIngresos();
-      LeeGenero();
-      LeeEstudios();
-      LeeOcupacion();
-      LeeIdioma();
-      LeeInmueble();
+      //CapturaIngresos();
+      //LeeGenero();
+      //LeeEstudios();
+      //LeeOcupacion();
+      //LeeIdioma();
+      //LeeInmueble();
    }
    public void LeeEdad()
    {
       for(int i=0;i<personas;i++)
       {
-         edad[i]=Teclado.LeeEntero("Dame la edad del intrante "+(i+1)+": ");
+         edad[i]=Teclado.LeeEntero("Dame la edad del integrante "+(i+1)+": ");
       }
    }
    public void LeeGenero()
@@ -56,13 +56,12 @@ class PersonaP
    public void LeeIdioma()
    {
       int x;
-      for(int i=0;i<per;i++)
+      for(int i=0;i<personas;i++)
       {
          idioma=Teclado.LeeEntero("El integrante "+(i+1)+" además del Español, ¿habla algun otro idioma?\n1.-Si\n2.-No\n ");
          if(idioma==1)
          {
             idiom=idiom+1;
-            x=Teclado.LeeEntero("¿Cuantos?: ");
          }
       }
    }
@@ -113,13 +112,23 @@ class PersonaP
    {
       return edad[0];
    }
-   public int getEdT(int a)
+   public int getEdT()
    {
-      return edad[a];
+      int p=0;
+      for(int i=0;i<personas;i++)
+      {
+         p=p+edad[i];
+      }
+      return p;
    }
-   public int getEst(int a)
+   public int getEst()
    {
-      return estudios[a];
+      int p=0;
+      for(int i=0;i<personas;i++)
+      {
+         p=p+estudios[i];
+      }
+      return p;
    }
    public int getIdd()
    {
