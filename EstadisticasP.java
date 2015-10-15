@@ -90,7 +90,8 @@ class EstadisticasP
       {
          prom=prom+person.getIdioma(i);
       }
-      return (prom/(person.contperso))*100;
+      prom=prom/person.contperso;
+      return (prom*100);
 
     }
     public float PerVieja()
