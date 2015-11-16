@@ -1,7 +1,5 @@
 class ColaCircularTLSE {
-
 	private NodoT h,t;
-
 	public void Insertar(Trabajos dato){
 		NodoT q=new NodoT(dato,h);
 		if(t==null){
@@ -13,7 +11,6 @@ class ColaCircularTLSE {
 			t=q;
 		}
 	}
-
 	public void Listar(){
 		if(h!=null){
 			h.GetInfo().ListarT();
@@ -22,7 +19,6 @@ class ColaCircularTLSE {
 		}
 
 	}
-
 	public Trabajos Borrar(){
 		NodoT aux=h;
 		if(h==null)
@@ -37,15 +33,12 @@ class ColaCircularTLSE {
 			}
 		}
 		return aux.GetInfo();
-	}
-   
-   public boolean EstaVacia(){
+	} 
+   public boolean ValidaVacio(){
       NodoT aux = h;
       if(h == null)
          return true;
       else
          return false;     
    }
-
-	
 }
