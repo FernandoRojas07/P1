@@ -14,29 +14,39 @@ class Main{
             inicial.ListarT();
             cs.Insertar(inicial);
         }
-        System.out.println("\nSe han creador los procesos! \nIniciarán los procesos...\n");
+        System.out.println("\nSe han creado los procesos! \nIniciarán los procesos...\n");
         for(int i=0;i<buffer;i++)
         {
             cc.Insertar(cs.Borrar());
+            
         }
-        while(!cc.ValidaVacio() || cs.GetH()==null)
+        while(!cc.ValidaVacio() && cs.GetH()!=null)
         {
-            System.out.println("Se saca proceso: ");
-            Trabajos aux = cc.Borrar();
-            System.out.println(">>>>>>>>>>>");
-            aux.ListarT();
-            System.out.println(">>>>>>>>>>>");
-            //cc.listar();
-            if(aux.regresaNodo(pag))
-               cs.Insertar(aux);
-            else{
-               System.out.println("Proceso terminado: ");
+            for(int i=0;i<buffer;i++){
+               System.out.println("Se saca proceso: ");
+               Trabajos aux = cc.Borrar();
+               System.out.println(">>>>>>>>>>>");
                aux.ListarT();
+               System.out.println(">>>>>>>>>>>");
+               //cc.listar();
+               if(aux.regresaNodo(pag))
+               {
+                  aux.regresaNodo(pag);
+                  cs.Insertar(aux);
+               }
+               else{
+                  System.out.println("Proceso terminado: ");
+                  aux.ListarT();
+               }
+               System.out.println("Inicia Listar");
+               cc.Listar();
+               System.out.println("Termina Listar");
             }
-            System.out.println("Inicia Listar");
-            cc.Listar();
-            System.out.println("Termina Listar");
-            cc.Insertar(cs.Borrar());  
+            for(int i=0;i<buffer;i++)
+            {
+               if (cs.GetH()!=null)
+                  cc.Insertar(cs.Borrar());  
+            }
         }
 	}
 }
